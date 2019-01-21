@@ -16,17 +16,19 @@ public class Biodata {
     private String kataKunci;
     private String jenisKelamin;
     private String daerah;
+    private String fotoPengguna;
 
     public Biodata() {
     }
 
-    public Biodata(Long id, String namaLengkap, String namaPengguna, String kataKunci, String jenisKelamin, String daerah) {
+    public Biodata(Long id, String namaLengkap, String namaPengguna, String kataKunci, String jenisKelamin, String daerah, String fotoPengguna) {
         this.id = id;
         this.namaLengkap = namaLengkap;
         this.namaPengguna = namaPengguna;
         this.kataKunci = kataKunci;
         this.jenisKelamin = jenisKelamin;
         this.daerah = daerah;
+        this.fotoPengguna = fotoPengguna;
     }
 
     public Long getId() {
@@ -75,5 +77,13 @@ public class Biodata {
 
     public void setDaerah(String daerah) {
         this.daerah = daerah;
+    }
+
+    public String getFotoPengguna() {
+        return fotoPengguna;
+    }
+
+    public void setFotoPengguna(String fotoPengguna) {
+        this.fotoPengguna = fotoPengguna;
     }
 }

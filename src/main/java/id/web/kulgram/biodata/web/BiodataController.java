@@ -15,13 +15,15 @@ import org.apache.poi.ss.usermodel.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.FileSystem;
 import java.nio.file.FileSystems;
 import java.nio.file.Path;
@@ -124,5 +126,34 @@ public class BiodataController {
         ServletOutputStream fileout = response.getOutputStream();
         MatrixToImageWriter.writeToStream(bitMatrix, "PNG", fileout);
         return "Oke";
+    }
+
+    private static String UPLOAD_DIR = "upload";
+
+    @PostMapping("/biodata/upload")
+    public String upload(@RequestParam("file") MultipartFile file, HttpServletRequest request) {
+        try {
+            String fileName = file.getOriginalFilename();
+            String path = request.getServletContext().getRealPath("") +  UPLOAD_DIR + File.separator + fileName;
+            saveFile(file.getInputStream(), path);
+            return fileName;
+        } catch (Exception e) {
+            return e.getMessage();
+        }
+    }
+
+    private void saveFile(InputStream inputStream, String path) {
+        try {
+            OutputStream outputStream = new FileOutputStream(new File(path));
+            int read = 0;
+            byte[] bytes = new byte[1024];
+            while ((read = inputStream.read(bytes)) != -1) {
+                outputStream.write(bytes, 0, read);
+            }
+            outputStream.flush();
+            outputStream.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

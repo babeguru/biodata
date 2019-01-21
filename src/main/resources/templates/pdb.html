@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport'/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"/>
+    <link rel="shortcut icon" href="/img/logo.png">
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/css/line-awesome.min.css"/>
+    <title>SIMBIO</title>
+</head>
+<body>
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col text-center mb-3">
+            <h4 class="h4">PDB</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/pdb/add" method="POST" enctype="multipart/form-data">
+                        <!-- DATA SANTRI -->
+                        <h6>DATA SANTRI</h6><hr/>
+                        <div class="form-group">
+                            <label>Nama Lengkap</label>
+                            <input type="text" class="form-control" name="namaLengkap" value="Dani Susanto">
+                        </div>
+                        <div class="form-group">
+                            <label>Jenis Kelamin</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="jenisKelamin" value="LAKI-LAKI" checked>
+                                <label class="form-check-label">Laki-Laki</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="jenisKelamin" value="PEREMPUAN">
+                                <label class="form-check-label">Perempuan</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Alamat</label>
+                            <textarea name="alamat" class="form-control">Kademangan Probolinggo</textarea>
+                        </div>
+                        <!-- END DATA SANTRI -->
+                        <br/>
+                        <br/>
+                        <!-- ASAL SEKOLAH -->
+                        <h6>ASAL SEKOLAH</h6><hr/>
+                        <div class="form-group">
+                            <label>Nama Sekolah</label>
+                            <input type="text" class="form-control" name="namaSekolah" value="SMKN 2 Kota Probolinggo">
+                        </div>
+                        <div class="form-group">
+                            <label>Bukti Kelulusan</label>
+                            <div class="row">
+                                <div class="col-md-2" id="box-photo">
+                                    <img src="/img/logo.png" alt="" style="width: 100%">
+                                </div>
+                            </div>
+                            <input type="file" class="form-control" name="file">
+                        </div>
+                        <!-- END ASAL SEKOLAH -->
+                        <br/>
+                        <br/>
+                        <!-- WILAYAH PESANTREN -->
+                        <h6>WILAYAH PESANTREN</h6><hr/>
+                        <div class="form-group">
+                            <label>Tinggal di Asrama</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="asrama" value="YA" checked>
+                                <label class="form-check-label">Ya (Mondok)</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="asrama" value="TIDAK">
+                                <label class="form-check-label">Tidak (Berangkat dari rumah)</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Nama Wilayah</label>
+                            <select name="wilayah" class="form-control">
+                                <option value="Gang A">Gang A</option>
+                                <option value="Gang B">Gang B</option>
+                                <option value="Gang C">Gang C</option>
+                            </select>
+                        </div>
+                        <!-- END WILAYAH PESANTREN -->
+                        <br/>
+                        <br/>
+                        <!-- LEMBAGA PENDIDIKAN -->
+                        <h6>WILAYAH PESANTREN</h6><hr/>
+                        <div class="form-group">
+                            <label>Jenjang Pendidikan</label>
+                            <select name="jenjangPendidikan" class="form-control">
+                                <option value="MI/SD">MI/SD</option>
+                                <option value="MTS/SMP">MTS/SMP</option>
+                                <option value="MA/SMA/SMK" selected>MA/SMA/SMK</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Nama Lembaga</label>
+                            <select name="namaLembaga" class="form-control">
+                                <option value="MI Nurul Jadid">MI Nurul Jadid</option>
+                                <option value="MTS Nurul Jadid">MTS Nurul Jadid</option>
+                                <option value="SMK Nurul Jadid" selected>SMK Nurul Jadid</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Jurusan</label>
+                            <select name="jurusan" class="form-control">
+                                <option value="Multimedia">Multimedia</option>
+                                <option value="RPL">RPL</option>
+                                <option value="TKJ" selected>TKJ</option>
+                            </select>
+                        </div>
+                        <!-- END LEMBAGA PENDIDIKAN -->
+                        <br/>
+                        <br/>
+                        <!-- AKUN PENDAFTARAN -->
+                        <h6>DATA SANTRI</h6><hr/>
+                        <div class="form-group">
+                            <label>Username</label>
+                            <input type="text" class="form-control" name="username" value="dnsprogress">
+                        </div>
+                        <div class="form-group">
+                            <label>Username</label>
+                            <input type="password" class="form-control" name="password" value="dnsprogress">
+                        </div>
+                        <!-- END AKUN PENDAFTARAN -->
+
+
+                        <div class="form-group text-right mt-4">
+                            <button type="reset" class="btn btn-dark mr-2">
+                                <i class="la la-refresh"></i>
+                                <span>Reset</span>
+                            </button>
+                            <button type="submit" class="btn btn-success ml-2">
+                                <i class="la la-plus"></i>
+                                <span>Tambah</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/js/jquery.min.js"></script>
+</body>
+</html>
+
+<script>
+  $(document).ready(function() {
+    $("[name=file]").change(function() {
+      let file = $(this)[0].files[0];
+      let url = URL.createObjectURL(file);
+      $("#box-photo").html('<img src="'+url+'" id="image" style="width: 100%;">');
+    })
+  })
+</script>
