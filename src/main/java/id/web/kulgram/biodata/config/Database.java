@@ -14,18 +14,17 @@ public class Database {
 
     @Bean
     public BasicDataSource dataSource() throws URISyntaxException {
-//        URI dbUri = new URI(System.getenv("DATABASE_URL"));
-//        System.out.println(dbUri);
-//
-//        String username = dbUri.getUserInfo().split(":")[0];
-//        String password = dbUri.getUserInfo().split(":")[1];
-//        String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + dbUri.getPath();
-        String dbUrl = "jdbc:mysql://localhost:3306/biodata";
+        URI dbUri = new URI(System.getenv("DATABASE_URL"));
+        System.out.println(dbUri);
+
+        String username = dbUri.getUserInfo().split(":")[0];
+        String password = dbUri.getUserInfo().split(":")[1];
+        String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + dbUri.getPath();
 
         BasicDataSource basicDataSource = new BasicDataSource();
         basicDataSource.setUrl(dbUrl);
-        basicDataSource.setUsername("root");
-        basicDataSource.setPassword("");
+        basicDataSource.setUsername(username);
+        basicDataSource.setPassword(password);
 
         return basicDataSource;
     }
