@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface WilayahAPI {
 
-    @GET("pojo/wilayah.json")
+    @GET("setting/wilayah")
     Call<List<WilayahRetrofit>> getWilayah();
 }

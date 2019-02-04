@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface RombelAPI {
 
-    @GET("pojo/rombel.json")
+    @GET("setting/lembaga/rombel")
     Call<List<RombelRetrofit>> getRombel();
 }

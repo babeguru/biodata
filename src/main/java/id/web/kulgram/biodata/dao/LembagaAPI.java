@@ -9,6 +9,6 @@ import java.util.List;
 
 public interface LembagaAPI {
 
-    @GET("pojo/lembaga.json")
+    @GET("settting/lembaga")
     Call<List<LembagaRetrofit>> getLembaga();
 }

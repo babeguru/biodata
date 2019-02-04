@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface SantriAPI {
 
-    @GET("pojo/santri.json")
+    @GET("pesertadidik")
     Call<List<SantriRetrofit>> getSantri();
 }
