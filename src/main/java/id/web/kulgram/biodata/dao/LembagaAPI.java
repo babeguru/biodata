@@ -9,6 +9,6 @@ import java.util.List;
 
 public interface LembagaAPI {
 
-    @GET("settting/lembaga")
-    Call<List<LembagaRetrofit>> getLembaga();
+    @GET("setting/lembaga")
+    Call<List<LembagaRetrofit>> getLembaga(@Header("x-token") String token);
 }

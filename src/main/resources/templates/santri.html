@@ -27,18 +27,28 @@
             <table class="table table-sm">
                 <thead>
                 <tr>
-                    <th class="align-middle">ID</th>
-                    <th class="align-middle">Jurusan</th>
-                    <th class="align-middle">ID Lembaga</th>
+                    <th class="align-middle">NIUP</th>
+                    <th class="align-middle">Nama Lengkap</th>
+                    <th class="align-middle">Jenis Kelamin</th>
+                    <th class="align-middle">Wilayah</th>
                     <th class="align-middle">Lembaga</th>
+                    <th class="align-middle">Jurusan</th>
+                    <th class="align-middle">Kelas</th>
+                    <th class="align-middle">Rombel</th>
+                    <th class="align-middle">Tanggal Mulai</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr th:each="data, index : ${datas}">
-                    <td th:text="${data.idJurusan}"></td>
-                    <td th:text="${data.namaJurusan}"></td>
-                    <td th:text="${data.idLembaga}"></td>
+                    <td th:text="${data.niup}"></td>
+                    <td th:text="${data.namaLengkap}"></td>
+                    <td th:text="${data.jenisKelamin}"></td>
+                    <td th:text="${data.wilayah}"></td>
                     <td th:text="${data.lembaga}"></td>
+                    <td th:text="${data.jurusan}"></td>
+                    <td th:text="${data.kelas}"></td>
+                    <td th:text="${data.rombel}"></td>
+                    <td th:text="${data.tanggalMulai}"></td>
                 </tr>
                 </tbody>
             </table>

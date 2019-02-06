@@ -39,7 +39,7 @@ public class WilayahController {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         WilayahAPI wilayahAPI = retrofit.create(WilayahAPI.class);
-        Call<List<WilayahRetrofit>> wilayahRetrofit = wilayahAPI.getWilayah();
+        Call<List<WilayahRetrofit>> wilayahRetrofit = wilayahAPI.getWilayah(loginPedatren.login());
         wilayahRetrofit.enqueue(new Callback<List<WilayahRetrofit>>() {
             @Override
             public void onResponse(Call<List<WilayahRetrofit>> call, Response<List<WilayahRetrofit>> response) {

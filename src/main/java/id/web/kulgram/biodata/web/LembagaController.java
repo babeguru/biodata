@@ -39,7 +39,7 @@ public class LembagaController {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         LembagaAPI lembagaAPI = retrofit.create(LembagaAPI.class);
-        Call<List<LembagaRetrofit>> lembagaRetrofit = lembagaAPI.getLembaga();
+        Call<List<LembagaRetrofit>> lembagaRetrofit = lembagaAPI.getLembaga(loginPedatren.login());
         lembagaRetrofit.enqueue(new Callback<List<LembagaRetrofit>>() {
             @Override
             public void onResponse(Call<List<LembagaRetrofit>> call, Response<List<LembagaRetrofit>> response) {

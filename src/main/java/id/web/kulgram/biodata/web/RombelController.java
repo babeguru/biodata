@@ -39,7 +39,7 @@ public class RombelController {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         RombelAPI rombelAPI = retrofit.create(RombelAPI.class);
-        Call<List<RombelRetrofit>> rombelRetrofit = rombelAPI.getRombel();
+        Call<List<RombelRetrofit>> rombelRetrofit = rombelAPI.getRombel(loginPedatren.login());
         rombelRetrofit.enqueue(new Callback<List<RombelRetrofit>>() {
             @Override
             public void onResponse(Call<List<RombelRetrofit>> call, Response<List<RombelRetrofit>> response) {
