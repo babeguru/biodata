@@ -22,45 +22,53 @@
             <div class="col-4">
                 <div class="card">
                     <div class="card-body">
-                        <div class="form-group">
-                            <label for="nama">Nama Lengkap</label>
-                            <textarea class="form-control" id="nama" rows="2"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="user">Akun Pengguna</label>
-                            <input class="form-control form-control-sm" type="text" id="user">
-                        </div>
-                        <div class="form-group">
-                            <label for="pass">Kata Kunci</label>
-                            <input class="form-control form-control-sm" type="password" id="pass">
-                        </div>
-                        <div class="form-group">
+                        <form action="#" th:action="@{/add}" th:object="${biodata}" method="post" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="nama">Nama Lengkap</label>
+                                <textarea class="form-control" id="nama" rows="2" th:field="*{namaLengkap}"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="user">Akun Pengguna</label>
+                                <input class="form-control form-control-sm" type="text" id="user" th:field="*{namaPengguna}">
+                            </div>
+                            <div class="form-group">
+                                <label for="pass">Kata Kunci</label>
+                                <input class="form-control form-control-sm" type="password" id="pass" th:field="*{kataKunci}">
+                            </div>
+                            <div class="form-group">
                                 <label>Jenis Kelamin</label>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" id="laki-laki">
+                                    <input class="form-check-input" type="radio" id="laki-laki" th:field="*{jenisKelamin}" th:value="LAKI-LAKI">
                                     <label class="form-check-label" for="laki-laki">Laki-Laki</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" id="perempuan">
+                                    <input class="form-check-input" type="radio" id="perempuan" th:field="*{jenisKelamin}" th:value="PEREMPUAN">
                                     <label class="form-check-label" for="perempuan">Perempuan</label>
                                 </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="daerah">Daerah Asal</label>
-                            <select class="form-control form-control-sm" id="daerah">
-                                <option>Pilih Daerah</option>
-                            </select>
-                        </div>
-                        <div class="form-group text-right mt-4">
-                            <button type="reset" class="btn btn-dark mr-2">
-                                <i class="la la-refresh"></i>
-                                <span>Reset</span>
-                            </button>
-                            <button type="submit" class="btn btn-success ml-2">
-                                <i class="la la-plus"></i>
-                                <span>Tambah</span>
-                            </button>
-                        </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="daerah">Daerah Asal</label>
+                                <select class="form-control form-control-sm" id="daerah"  th:field="*{daerah}">
+                                    <option th:value="0">Pilih Daerah</option>
+                                    <option th:value="JAKARTA">JAKARTA</option>
+                                    <option th:value="BANDUNG">BANDUNG</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="user">Foto Pengguna</label>
+                                <input class="form-control form-control-sm" type="file" name="file">
+                            </div>
+                            <div class="form-group text-right mt-4">
+                                <button type="reset" class="btn btn-dark mr-2">
+                                    <i class="la la-refresh"></i>
+                                    <span>Reset</span>
+                                </button>
+                                <button type="submit" class="btn btn-success ml-2">
+                                    <i class="la la-plus"></i>
+                                    <span>Tambah</span>
+                                </button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -87,5 +95,6 @@
         </div>
     </div>
 
+    <script src="/js/jquery.min.js"></script>
 </body>
 </html>
